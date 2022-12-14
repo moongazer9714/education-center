@@ -52,3 +52,5 @@ def blog_detail(request, pk):
         'recent_blog': recent_blog,
     }
     return render(request, 'blog/blog-single.html', context)
+
+

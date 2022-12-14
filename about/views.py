@@ -16,3 +16,6 @@ def index(request):
 
 def about_us(request):
     return render(request, 'about/about.html')
+
+
+#

@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate pb-5 text-center">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span>
+                    <span class="mr-2"><a href="index.html">Blog <i class="fa fa-chevron-right"></i></a></span> <span>Blog Single <i
+                            class="fa fa-chevron-right"></i></span></p>
+                <h1 class="mb-0 bread">Our Blog</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-no-pt ftco-no-pb">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 ftco-animate py-md-5 mt-md-5">
+                <h2 class="mb-3">{{ blog.title }}</h2>
+                <p>{{ blog.content|safe }}</p>
+                <div class="tag-widget post-tag-container mb-5 mt-5">
+                    <div class="tagcloud">
+                        {% for i in blog.tag.all %}
+                        <a href="{% url 'blog-list' %}?tag={{ i.title }}" class="tag-cloud-link">{{ i.title }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+
+<!--                <div class="pt-5 mt-5">-->
+<!--                    <h3 class="mb-5" style="font-size: 20px; font-weight: bold;">6 Comments</h3>-->
+<!--                    <ul class="comment-list">-->
+<!--                        <li class="comment">-->
+<!--                            <div class="vcard bio">-->
+<!--                                <img src="images/person_1.jpg" alt="Image placeholder">-->
+<!--                            </div>-->
+<!--                            <div class="comment-body">-->
+<!--                                <h3>John Doe</h3>-->
+<!--                                <div class="meta">September 17, 2020 at 2:21pm</div>-->
+<!--                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum-->
+<!--                                    necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente-->
+<!--                                    iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>-->
+<!--                                <p><a href="#" class="reply">Reply</a></p>-->
+<!--                            </div>-->
+<!--                        </li>-->
+
+<!--                        <li class="comment">-->
+<!--                            <div class="vcard bio">-->
+<!--                                <img src="images/person_1.jpg" alt="Image placeholder">-->
+<!--                            </div>-->
+<!--                            <div class="comment-body">-->
+<!--                                <h3>John Doe</h3>-->
+<!--                                <div class="meta">September 17, 2020 at 2:21pm</div>-->
+<!--                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum-->
+<!--                                    necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente-->
+<!--                                    iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>-->
+<!--                                <p><a href="#" class="reply">Reply</a></p>-->
+<!--                            </div>-->
+
+<!--                            <ul class="children">-->
+<!--                                <li class="comment">-->
+<!--                                    <div class="vcard bio">-->
+<!--                                        <img src="images/person_1.jpg" alt="Image placeholder">-->
+<!--                                    </div>-->
+<!--                                    <div class="comment-body">-->
+<!--                                        <h3>John Doe</h3>-->
+<!--                                        <div class="meta">September 17, 2020 at 2:21pm</div>-->
+<!--                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem-->
+<!--                                            laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe-->
+<!--                                            enim sapiente iste iure! Quam voluptas earum impedit necessitatibus,-->
+<!--                                            nihil?</p>-->
+<!--                                        <p><a href="#" class="reply">Reply</a></p>-->
+<!--                                    </div>-->
+
+
+<!--                                    <ul class="children">-->
+<!--                                        <li class="comment">-->
+<!--                                            <div class="vcard bio">-->
+<!--                                                <img src="images/person_1.jpg" alt="Image placeholder">-->
+<!--                                            </div>-->
+<!--                                            <div class="comment-body">-->
+<!--                                                <h3>John Doe</h3>-->
+<!--                                                <div class="meta">September 17, 2020 at 2:21pm</div>-->
+<!--                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur-->
+<!--                                                    quidem laborum necessitatibus, ipsam impedit vitae autem, eum-->
+<!--                                                    officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum-->
+<!--                                                    impedit necessitatibus, nihil?</p>-->
+<!--                                                <p><a href="#" class="reply">Reply</a></p>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+
+<!--                        <li class="comment">-->
+<!--                            <div class="vcard bio">-->
+<!--                                <img src="images/person_1.jpg" alt="Image placeholder">-->
+<!--                            </div>-->
+<!--                            <div class="comment-body">-->
+<!--                                <h3>John Doe</h3>-->
+<!--                                <div class="meta">September 17, 2020 at 2:21pm</div>-->
+<!--                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum-->
+<!--                                    necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente-->
+<!--                                    iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>-->
+<!--                                <p><a href="#" class="reply">Reply</a></p>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    &lt;!&ndash; END comment-list &ndash;&gt;-->
+
+<!--                    <div class="comment-form-wrap pt-5">-->
+<!--                        <h3 class="mb-5" style="font-size: 20px; font-weight: bold;">Leave a comment</h3>-->
+<!--                        <form action="#" class="p-5 bg-light">-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="name">Name *</label>-->
+<!--                                <input type="text" class="form-control" id="name">-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="email">Email *</label>-->
+<!--                                <input type="email" class="form-control" id="email">-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="website">Website</label>-->
+<!--                                <input type="url" class="form-control" id="website">-->
+<!--                            </div>-->
+
+<!--                            <div class="form-group">-->
+<!--                                <label for="message">Message</label>-->
+<!--                                <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">-->
+<!--                            </div>-->
+
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+            </div> <!-- .col-md-8 -->
+            <div class="col-lg-4 sidebar ftco-animate pl-md-4 py-md-5">
+                <div class="sidebar-box mt-md-5 bg-light">
+                    <form action="{% url 'blog-list' %}" method="get" class="search-form">
+                        <div class="form-group">
+                            <span class="icon fa fa-search"></span>
+                            <input type="text" name="q" class="form-control" placeholder="Search...">
+                        </div>
+                    </form>
+                </div>
+                <div class="sidebar-box ftco-animate">
+                    <div class="categories">
+                        <h3>Categories</h3>
+                        {% for i in categories %}
+                        <li><a href="{% url 'blog-list' %}?category={{ i.title }}">{{ i.title }}<span>({{ i.blogs_count }})</span></a></li>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="sidebar-box ftco-animate">
+                    <h3>Recent Blog</h3>
+                    {% for item in recent_blog %}
+                    <div class="block-21 mb-4 d-flex">
+                        <a href="{% url 'blog-detail' item.id %}" class="blog-img mr-4" style="background-image: url({{ item.image.url }});"></a>
+                        <div class="text">
+                            <h3 class="heading"><a href="{% url 'blog-detail' item.id %}">{{ item.title }}</a></h3>
+                            <div class="meta">
+                                <div><a><span class="fa fa-calendar"></span>{{ item.created_at }}</a></div>
+                                <div><a><span class="fa fa-user"></span>{{ item.owner.username }}</a></div>
+                                <div><a><span class="fa fa-comment"></span> 19</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="sidebar-box ftco-animate">
+                    <h3>Tag Cloud</h3>
+                    <div class="tagcloud">
+                        {% for item in tags %}
+                        <a href="{% url 'blog-list' %}?tag={{ item.title }}" class="tag-cloud-link">{{ item.title }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section> <!-- .section -->
+
+
+<!-- loader -->
+<!--<div id="ftco-loader" class="show fullscreen">-->
+<!--    <svg class="circular" width="48px" height="48px">-->
+<!--        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>-->
+<!--        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"-->
+<!--                stroke="#F96D00"/>-->
+<!--    </svg>-->
+<!--</div>-->
+{% endblock content %}
+

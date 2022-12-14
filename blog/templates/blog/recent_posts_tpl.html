@@ -1,0 +1,5 @@
+<ul class="list-unstyled">
+    {% for item in blogs %}
+    <li><a href="{% url 'blog-detail' item.id %}" class="py-2 d-block">{{ item.title }}</a></li>
+    {% endfor %}
+</ul>
